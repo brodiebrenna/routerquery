@@ -7,6 +7,10 @@ This is a python script designed to query the Hitron CGNM 2250 router for the li
 
 this file contains a json object that contains nicknames of connected devices. The key for the nickname is the mac address as that should be unique to each device. 
 
+# routerinfo.config
+
+File containing JSON list of router information so that I can query different routers
+
 # wql.py
 
 This is the Wifi Query Library and will contain all the code required to do the http queries so that both the CLI and GUI versions can just import this file and get the same functionality.
