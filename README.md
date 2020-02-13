@@ -16,22 +16,17 @@ This is the Wifi Query Library and will contain all the code required to do the 
 
 This will be the name of the CLI version (at the given moment).
 
-
+```
 Usage: python3 routerquery.py [options]
 
 Options:    -h -H                 print help window
-
             -v -V                 be verbose
-            
-            --Version             print version info
-            
-            -l  [data]            set location
-            
-            -n  [mac, data]       set nickname for given mac address
-            
-            -iL [value]           requery the router every given number of seconds
-            
+            --Version             print version info            
+            -l  [data]            set location            
+            -n  [mac, data]       set nickname for given mac address            
+            -iL [value]           requery the router every given number of seconds            
             --config [loc, data]  edit config file for a given location
+```
 
 # xrouterquery.py
 
