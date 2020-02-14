@@ -3,6 +3,10 @@ import tkinter.font as tkFont
 import tkinter.ttk as ttk
 import wql
 import json
+import os
+ 
+dirpath = os.path.dirname(os.path.abspath(__file__))
+dirpath = dirpath + "/config/routerinfo.config"
 
 ######################	 WQL	 ######################
 
@@ -10,7 +14,7 @@ wifi = wql.httpHandler()
 
 ###################### LOAD CONFIG ######################
 def load(location):
-	f = open("config/routerinfo.config", 'r')
+	f = open(dirpath, 'r')
 	contents = json.loads(f.read())
 	f.close()
 	for i in contents:
@@ -20,7 +24,7 @@ def load(location):
 def loadData():
 	root = tk.Tk()
 	root.title("Choose what location to load")
-	f = open("config/routerinfo.config", 'r')
+	f = open(dirpath, 'r')
 	contents = json.loads(f.read())
 	f.close()
 	listbox = tk.Listbox(root)
@@ -33,7 +37,7 @@ def loadData():
 	
 ###################### SAVE CONFIG ######################
 def editLocation(data):
-	f = open("config/routerinfo.config","w+")
+	f = open(dirpath,"w+")
 	contents = json.loads(f.read())
 	for i in contents:
 		if i['location']==data['location']:
@@ -41,7 +45,7 @@ def editLocation(data):
 	f.close()
 
 def newLocation(data):
-	f = open("config/routerinfo.config","w+")
+	f = open(dirpath,"w+")
 	contents = json.loads(f.read())
 	contents.append(data)
 	f.write(contents)
@@ -125,7 +129,7 @@ def main(window):
 
 	filemenu = tk.Menu(menubar, tearoff=0)
 	filemenu.add_command(label="New", command=doNothing)
-	filemenu.add_command(label="Load", command=loadData)
+	filemenu.add_command(label="Reload", command=doNothing)
 	filemenu.add_command(label="Edit", command=doNothing)
 	filemenu.add_separator()
 	filemenu.add_command(label="Exit", command=window.quit)
