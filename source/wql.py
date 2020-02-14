@@ -1,7 +1,9 @@
 import requests
 import json
-
-f = open("nicknames.config","r")
+import os
+ 
+dirpath = os.path.dirname(os.path.abspath(__file__)) + "/config/nicknames.config"
+f = open(dirpath,"r")
 nicknames = json.loads(f.read())
 f.close()
 
@@ -60,5 +62,4 @@ class httpHandler:
 		for i in range(len(content)):
 			self.deviceLst.append(device(content[i]['hostName'],content[i]['ipAddr'],content[i]['macAddr'],content[i]['interface']))
 		return self.deviceLst
-
 
